@@ -1,4 +1,13 @@
-Rails.application.routes.draw do
+Demowebapi::Application.routes.draw do
+  root "static_pages#index" 
+  get "cate/:cate" => "static_pages#cate"
+  get "tail/:id" => "static_pages#tail"
+  get "newitem" => "static_pages#newitem"
+  get "useditem" => "static_pages#useditem"
+  get "search/keyword" => "static_pages#search"
+  resources :kanri
+  devise_for :admins
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
